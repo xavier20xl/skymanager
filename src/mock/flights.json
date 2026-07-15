@@ -1,0 +1,35 @@
+[
+  {
+    "id": "f1a2b3c4-1234-5678-9abc-def012345678",
+    "origin": "MEX",
+    "destination": "PTY",
+    "airline_id": "al1",
+    "departure_time": "2026-07-20T08:00:00Z",
+    "arrival_time": "2026-07-20T12:30:00Z",
+    "status": "scheduled",
+    "gate": "A12",
+    "capacity": 180
+  },
+  {
+    "id": "f2b3c4d5-2345-6789-abcd-ef0123456789",
+    "origin": "PTY",
+    "destination": "SAL",
+    "airline_id": "al2",
+    "departure_time": "2026-07-20T14:00:00Z",
+    "arrival_time": "2026-07-20T15:00:00Z",
+    "status": "boarding",
+    "gate": "B5",
+    "capacity": 120
+  },
+  {
+    "id": "f3c4d5e6-3456-789a-bcde-f01234567890",
+    "origin": "SAP",
+    "destination": "RTB",
+    "airline_id": "al1",
+    "departure_time": "2026-07-21T06:30:00Z",
+    "arrival_time": "2026-07-21T07:15:00Z",
+    "status": "scheduled",
+    "gate": "C3",
+    "capacity": 50
+  }
+]
