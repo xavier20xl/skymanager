@@ -1,0 +1,22 @@
+{
+  "name": "skymanager-api",
+  "version": "1.0.0",
+  "description": "API REST para la gestion de vuelos de un aeropuerto (SkyManager)",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "vuelos",
+    "aeropuerto"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
+  }
+}
