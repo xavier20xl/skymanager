@@ -43,10 +43,6 @@ npm run dev
 | GET | `/flights` | Listar todos los vuelos |
 | GET | `/flights/:id` | Obtener un vuelo por ID |
 
-## Probando los endpoints
-
-Se probaron los endpoints utilizando el archivo `api.http` con la extensión **REST Client** de VS Code.
-
 ## Arquitectura del proyecto
 
 El proyecto sigue el patrón **MVC** (Model-View-Controller):
@@ -59,7 +55,6 @@ skymanager-api/
 │   ├── routes/         # Definición de rutas Express
 │   ├── helpers/        # Utilidades (jsonResponse)
 │   └── mock/           # Datos de prueba en JSON
-├── api.http            # Pruebas de endpoints
 ├── index.js            # Punto de entrada del servidor
 └── package.json
 ```
