@@ -37,11 +37,51 @@ npm run dev
 
 ## Endpoints disponibles
 
+### Health Check
+
 | Método | Ruta | Descripción |
 |--------|------|-------------|
 | GET | `/` | Health check |
+
+### Flights
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
 | GET | `/flights` | Listar todos los vuelos |
 | GET | `/flights/:id` | Obtener un vuelo por ID |
+| POST | `/flights` | Crear un vuelo |
+| PUT | `/flights/:id` | Actualizar un vuelo |
+| DELETE | `/flights/:id` | Eliminar un vuelo |
+
+### Airlines
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/airlines` | Listar todas las aerolíneas |
+| GET | `/airlines/:id` | Obtener una aerolínea por ID |
+| POST | `/airlines` | Crear una aerolínea |
+| PUT | `/airlines/:id` | Actualizar una aerolínea |
+| DELETE | `/airlines/:id` | Eliminar una aerolínea |
+
+### Airports
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/airports` | Listar todos los aeropuertos |
+| GET | `/airports/:id` | Obtener un aeropuerto por ID |
+| POST | `/airports` | Crear un aeropuerto |
+| PUT | `/airports/:id` | Actualizar un aeropuerto |
+| DELETE | `/airports/:id` | Eliminar un aeropuerto |
+
+### Passengers
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/passengers` | Listar todos los pasajeros |
+| GET | `/passengers/:id` | Obtener un pasajero por ID |
+| POST | `/passengers` | Crear un pasajero |
+| PUT | `/passengers/:id` | Actualizar un pasajero |
+| DELETE | `/passengers/:id` | Eliminar un pasajero |
 
 ## Arquitectura del proyecto
 
@@ -53,6 +93,8 @@ skymanager-api/
 │   ├── controllers/    # Lógica de cada endpoint
 │   ├── models/         # Acceso a datos (mock/SQL)
 │   ├── routes/         # Definición de rutas Express
+│   ├── schemas/        # Validación de esquemas con Zod
+│   ├── middlewares/    # Middlewares (isAuth)
 │   ├── helpers/        # Utilidades (jsonResponse)
 │   └── mock/           # Datos de prueba en JSON
 ├── index.js            # Punto de entrada del servidor
@@ -69,6 +111,7 @@ skymanager-api/
 ### Códigos de Error del Cliente (4xx)
 
 - **400 Bad Request** — Datos de entrada inválidos o faltantes
+- **401 Unauthorized** — Token de autenticación faltante o inválido
 - **404 Not Found** — Recurso no encontrado
 
 ### Códigos de Error del Servidor (5xx)
@@ -82,3 +125,9 @@ skymanager-api/
 - **Zod** — Validación de esquemas
 - **MySQL2** — Conexión a base de datos (fase pendiente)
 - **Docker** — Contenedor para MySQL (fase pendiente)
+
+## Middlewares
+
+### isAuth
+
+Middleware de autenticación que valida la presencia de encabezados de autorización en las peticiones. Requerido para endpoints de escritura (POST, PUT, DELETE).
