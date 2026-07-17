@@ -1,0 +1,20 @@
+﻿[
+  {
+    "id": "al1",
+    "name": "CM Airlines",
+    "iata_code": "CM",
+    "country": "Honduras"
+  },
+  {
+    "id": "al2",
+    "name": "Avianca",
+    "iata_code": "AV",
+    "country": "Colombia"
+  },
+  {
+    "id": "al3",
+    "name": "American Airlines",
+    "iata_code": "AA",
+    "country": "Estados Unidos"
+  }
+]

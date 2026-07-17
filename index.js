@@ -1,6 +1,9 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import flightsRouter from './src/routes/flights.routes.js'
+import airlinesRouter from './src/routes/airlines.routes.js'
+import airportsRouter from './src/routes/airports.routes.js'
+import passengersRouter from './src/routes/passengers.routes.js'
 
 dotenv.config()
 
@@ -15,6 +18,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/flights', flightsRouter)
+app.use('/airlines', airlinesRouter)
+app.use('/airports', airportsRouter)
+app.use('/passengers', passengersRouter)
 
 app.listen(PORT, () => {
     console.log(`Servidor en marcha en: http://localhost:${PORT}`)

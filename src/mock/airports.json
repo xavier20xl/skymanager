@@ -1,0 +1,37 @@
+﻿[
+  {
+    "id": "apt1",
+    "iata_code": "MEX",
+    "name": "Aeropuerto Internacional Benito Juarez",
+    "city": "Ciudad de Mexico",
+    "country": "Mexico"
+  },
+  {
+    "id": "apt2",
+    "iata_code": "PTY",
+    "name": "Aeropuerto Internacional de Tocumen",
+    "city": "Ciudad de Panama",
+    "country": "Panama"
+  },
+  {
+    "id": "apt3",
+    "iata_code": "SAL",
+    "name": "Aeropuerto Internacional Monsenor Oscar Arnulfo Romero",
+    "city": "San Salvador",
+    "country": "El Salvador"
+  },
+  {
+    "id": "apt4",
+    "iata_code": "SAP",
+    "name": "Aeropuerto Internacional Ramon Villeda Morales",
+    "city": "San Pedro Sula",
+    "country": "Honduras"
+  },
+  {
+    "id": "apt5",
+    "iata_code": "RTB",
+    "name": "Aeropuerto Internacional Juan Manuel Galvez",
+    "city": "Roatan",
+    "country": "Honduras"
+  }
+]

@@ -1,0 +1,26 @@
+﻿[
+  {
+    "id": "psg1",
+    "first_name": "Carlos",
+    "last_name": "Lopez",
+    "passport": "HN12345678",
+    "nationality": "Honduras",
+    "email": "carlos.lopez@email.com"
+  },
+  {
+    "id": "psg2",
+    "first_name": "Ana",
+    "last_name": "Martinez",
+    "passport": "US87654321",
+    "nationality": "Estados Unidos",
+    "email": "ana.martinez@email.com"
+  },
+  {
+    "id": "psg3",
+    "first_name": "Luis",
+    "last_name": "Hernandez",
+    "passport": "MX11223344",
+    "nationality": "Mexico",
+    "email": "luis.hernandez@email.com"
+  }
+]
