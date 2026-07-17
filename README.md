@@ -29,7 +29,26 @@ Paso 1 — Instalar dependencias:
 npm install
 ```
 
-Paso 2 — Arrancar el servidor en modo desarrollo:
+Paso 2 — Configurar las variables de entorno:
+
+```bash
+cp .env.example .env
+```
+
+Luego editar el archivo `.env` con los valores necesarios:
+
+```env
+PORT=3000
+
+# Base de datos MySQL
+DB_HOST=
+DB_USER=
+DB_PASSWORD=
+DB_NAME=
+DB_PORT=
+```
+
+Paso 3 — Arrancar el servidor en modo desarrollo:
 
 ```bash
 npm run dev
