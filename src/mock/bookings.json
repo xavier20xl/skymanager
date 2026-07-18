@@ -1,0 +1,18 @@
+﻿[
+  {
+    "id": "bk1",
+    "passenger_id": "psg1",
+    "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+    "seat_number": "12A",
+    "booking_date": "2026-07-15T10:00:00Z",
+    "status": "confirmed"
+  },
+  {
+    "id": "bk2",
+    "passenger_id": "psg2",
+    "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+    "seat_number": "12B",
+    "booking_date": "2026-07-15T11:00:00Z",
+    "status": "confirmed"
+  }
+]

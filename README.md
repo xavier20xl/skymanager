@@ -102,6 +102,16 @@ npm run dev
 | PUT | `/passengers/:id` | Actualizar un pasajero |
 | DELETE | `/passengers/:id` | Eliminar un pasajero |
 
+### Bookings
+
+| Método | Ruta | Descripción |
+|--------|------|-------------|
+| GET | `/bookings` | Listar todas las reservas |
+| GET | `/bookings/:id` | Obtener una reserva por ID |
+| POST | `/bookings` | Crear una reserva (verifica pasajero, vuelo y asiento) |
+| PUT | `/bookings/:id` | Actualizar una reserva |
+| DELETE | `/bookings/:id` | Eliminar una reserva |
+
 ## Arquitectura del proyecto
 
 El proyecto sigue el patrón **MVC** (Model-View-Controller):

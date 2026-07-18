@@ -4,6 +4,7 @@ import flightsRouter from './src/routes/flights.routes.js'
 import airlinesRouter from './src/routes/airlines.routes.js'
 import airportsRouter from './src/routes/airports.routes.js'
 import passengersRouter from './src/routes/passengers.routes.js'
+import bookingsRouter from './src/routes/bookings.routes.js'
 
 dotenv.config()
 
@@ -21,6 +22,7 @@ app.use('/flights', flightsRouter)
 app.use('/airlines', airlinesRouter)
 app.use('/airports', airportsRouter)
 app.use('/passengers', passengersRouter)
+app.use('/bookings', bookingsRouter)
 
 app.listen(PORT, () => {
     console.log(`Servidor en marcha en: http://localhost:${PORT}`)

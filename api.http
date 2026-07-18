@@ -1,0 +1,184 @@
+### SkyManager API - Endpoints
+
+### Health Check
+GET http://localhost:3000/
+
+### ==================== FLIGHTS ====================
+
+### Listar todos los vuelos
+GET http://localhost:3000/flights
+
+### Obtener vuelo por ID
+GET http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+
+### Crear vuelo
+POST http://localhost:3000/flights
+Content-Type: application/json
+
+{
+  "origin": "MEX",
+  "destination": "SAL",
+  "airline_id": "al1",
+  "departure_time": "2026-08-01T08:00:00Z",
+  "arrival_time": "2026-08-01T09:00:00Z",
+  "status": "scheduled",
+  "gate": "D4",
+  "capacity": 150
+}
+
+### Actualizar vuelo
+PUT http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+Content-Type: application/json
+
+{
+  "status": "departed",
+  "gate": "D4"
+}
+
+### Eliminar vuelo
+DELETE http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+
+### ==================== AIRLINES ====================
+
+### Listar todas las aerolíneas
+GET http://localhost:3000/airlines
+
+### Obtener aerolínea por ID
+GET http://localhost:3000/airlines/al1
+
+### Crear aerolínea
+POST http://localhost:3000/airlines
+Content-Type: application/json
+
+{
+  "name": "Copa Airlines",
+  "iata_code": "CM",
+  "country": "Panama"
+}
+
+### Actualizar aerolínea
+PUT http://localhost:3000/airlines/al1
+Content-Type: application/json
+
+{
+  "country": "Honduras"
+}
+
+### Eliminar aerolínea
+DELETE http://localhost:3000/airlines/al3
+
+### ==================== AIRPORTS ====================
+
+### Listar todos los aeropuertos
+GET http://localhost:3000/airports
+
+### Obtener aeropuerto por ID
+GET http://localhost:3000/airports/apt4
+
+### Crear aeropuerto
+POST http://localhost:3000/airports
+Content-Type: application/json
+
+{
+  "iata_code": "BOG",
+  "name": "Aeropuerto Internacional El Dorado",
+  "city": "Bogota",
+  "country": "Colombia"
+}
+
+### Actualizar aeropuerto
+PUT http://localhost:3000/airports/apt5
+Content-Type: application/json
+
+{
+  "city": "Roatan, Islas de la Bahia"
+}
+
+### Eliminar aeropuerto
+DELETE http://localhost:3000/airports/apt5
+
+### ==================== PASSENGERS ====================
+
+### Listar todos los pasajeros
+GET http://localhost:3000/passengers
+
+### Obtener pasajero por ID
+GET http://localhost:3000/passengers/psg1
+
+### Crear pasajero
+POST http://localhost:3000/passengers
+Content-Type: application/json
+
+{
+  "first_name": "Maria",
+  "last_name": "Gonzalez",
+  "passport": "GT99887766",
+  "nationality": "Guatemala",
+  "email": "maria.gonzalez@email.com"
+}
+
+### Actualizar pasajero
+PUT http://localhost:3000/passengers/psg2
+Content-Type: application/json
+
+{
+  "email": "ana.martinez.nuevo@email.com"
+}
+
+### Eliminar pasajero
+DELETE http://localhost:3000/passengers/psg3
+
+### ==================== BOOKINGS ====================
+
+### Listar todas las reservas
+GET http://localhost:3000/bookings
+
+### Obtener reserva por ID
+GET http://localhost:3000/bookings/bk1
+
+### Crear reserva (exitosa)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "passenger_id": "psg3",
+  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "seat_number": "14C",
+  "booking_date": "2026-07-16T10:00:00Z",
+  "status": "confirmed"
+}
+
+### Crear reserva (pasajero inexistente - debe dar 400)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "passenger_id": "INVALID",
+  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "seat_number": "15A",
+  "booking_date": "2026-07-16T10:00:00Z",
+  "status": "confirmed"
+}
+
+### Crear reserva (asiento ocupado - debe dar 400)
+POST http://localhost:3000/bookings
+Content-Type: application/json
+
+{
+  "passenger_id": "psg3",
+  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "seat_number": "12A",
+  "booking_date": "2026-07-16T10:00:00Z",
+  "status": "confirmed"
+}
+
+### Actualizar reserva
+PUT http://localhost:3000/bookings/bk1
+Content-Type: application/json
+
+{
+  "status": "cancelled"
+}
+
+### Eliminar reserva
+DELETE http://localhost:3000/bookings/bk2
