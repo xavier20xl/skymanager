@@ -11,7 +11,7 @@ Carlos Xavier López Mendoza — 20182030892
 - VS Code
 - Git
 - Node.js (v18+)
-- Docker (para la fase de base de datos)
+- Docker Desktop
 
 ## Para clonar el repositorio
 
@@ -21,34 +21,44 @@ Ejecutar el siguiente comando desde la consola de su computadora (después de ha
 git clone https://github.com/xavier20xl/skymanager.git
 ```
 
-## Para correr el servidor
+## Para correr el servidor (con Docker)
 
-Paso 1 — Instalar dependencias:
+Paso 1 — Abrir Docker Desktop y esperar a que esté corriendo.
+
+Paso 2 — Levantar el contenedor de MySQL:
 
 ```bash
+cd db-Sky
+docker compose up -d
+cd ..
+```
+
+Paso 3 — Instalar dependencias:
+
+```bash
+cd api-Sky
 npm install
 ```
 
-Paso 2 — Configurar las variables de entorno:
+Paso 4 — Configurar las variables de entorno:
 
 ```bash
 cp .env.example .env
 ```
 
-Luego editar el archivo `.env` con los valores necesarios:
+Luego editar el archivo `.env` con los valores necesarios (las credenciales de la BD están en `db-Sky/README.md`):
 
 ```env
 PORT=3000
 
-# Base de datos MySQL
-DB_HOST=
+DB_HOST=localhost
 DB_USER=
 DB_PASSWORD=
 DB_NAME=
 DB_PORT=
 ```
 
-Paso 3 — Arrancar el servidor en modo desarrollo:
+Paso 5 — Arrancar el servidor en modo desarrollo:
 
 ```bash
 npm run dev
@@ -118,16 +128,22 @@ El proyecto sigue el patrón **MVC** (Model-View-Controller):
 
 ```
 skymanager-api/
-├── src/
-│   ├── controllers/    # Lógica de cada endpoint
-│   ├── models/         # Acceso a datos (mock/SQL)
-│   ├── routes/         # Definición de rutas Express
-│   ├── schemas/        # Validación de esquemas con Zod
-│   ├── middlewares/    # Middlewares (isAuth)
-│   ├── helpers/        # Utilidades (jsonResponse)
-│   └── mock/           # Datos de prueba en JSON
-├── index.js            # Punto de entrada del servidor
-└── package.json
+├── api-Sky/            # API REST (Express + MVC + Zod)
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── schemas/
+│   │   ├── middlewares/
+│   │   ├── helpers/
+│   │   └── mock/
+│   └── index.js
+├── db-Sky/             # Base de datos MySQL (Docker)
+│   ├── init/init.sql
+│   ├── docker-compose.yml
+│   └── README.md
+├── .gitignore
+└── README.md
 ```
 
 ## Códigos de Estado HTTP
@@ -152,8 +168,8 @@ skymanager-api/
 - **Express** — Framework web para Node.js
 - **dotenv** — Manejo de variables de entorno
 - **Zod** — Validación de esquemas
-- **MySQL2** — Conexión a base de datos (fase pendiente)
-- **Docker** — Contenedor para MySQL (fase pendiente)
+- **MySQL2** — Conexión a base de datos
+- **Docker** — Contenedor para MySQL
 
 ## Middlewares
 

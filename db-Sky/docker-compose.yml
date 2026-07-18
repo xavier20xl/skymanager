@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: skymanager-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root2026
+      MYSQL_DATABASE: skymanager_db
+      MYSQL_USER: skymanager
+      MYSQL_PASSWORD: skymanager2026
+    volumes:
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - skymanager_data:/var/lib/mysql
+
+volumes:
+  skymanager_data:
