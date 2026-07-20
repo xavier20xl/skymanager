@@ -1,7 +1,7 @@
 import * as z from 'zod'
 
 const passengerSchema = z.object({
-    id: z.string().min(1, 'El ID es obligatorio'),
+    id: z.uuidv4('El formato del ID es inválido'),
     first_name: z.string().min(2).max(50, 'El nombre es obligatorio'),
     last_name: z.string().min(2).max(50, 'El apellido es obligatorio'),
     passport: z.string().min(6).max(20, 'El pasaporte es obligatorio'),
