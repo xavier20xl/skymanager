@@ -173,6 +173,15 @@ skymanager-api/
 - **MySQL2** — Conexión a base de datos
 - **Docker** — Contenedor para MySQL
 
+## Validaciones
+
+Todos los recursos validan sus datos con **Zod** antes de llegar al modelo:
+
+- Los `id` son generados por el servidor con `randomUUID()` y validados como **UUID v4**.
+- Las llaves foráneas (`airline_id`, `passenger_id`, `flight_id`) deben ser **UUID v4** válidos — un formato incorrecto responde `400 Bad Request` en lugar de generar un error en la base de datos.
+- Las fechas (`departure_time`, `arrival_time`, `booking_date`) usan formato ISO 8601 (ej: `2026-08-01T10:00:00Z`).
+- Los esquemas son `.strict()`: cualquier campo extra en el body es rechazado.
+
 ## Middlewares
 
 ### isAuth
