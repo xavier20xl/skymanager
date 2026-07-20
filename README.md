@@ -82,6 +82,8 @@ npm run dev
 | PUT | `/flights/:id` | Actualizar un vuelo |
 | DELETE | `/flights/:id` | Eliminar un vuelo |
 
+**Nota:** A partir de esta versión, Flights está conectado directamente a la base de datos MySQL. Los cambios se persisten en la BD en lugar de usar datos en memoria.
+
 ### Airlines
 
 | Método | Ruta | Descripción |
