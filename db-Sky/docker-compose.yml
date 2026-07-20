@@ -1,9 +1,8 @@
-version: '3.8'
-
 services:
   mysql:
     image: mysql:8.0
     container_name: skymanager-mysql
+    restart: always
     ports:
       - "3307:3306"
     environment:
@@ -12,7 +11,8 @@ services:
       MYSQL_USER: skymanager
       MYSQL_PASSWORD: skymanager2026
     volumes:
-      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      # Se monta la carpeta completa para que los scripts se ejecuten en orden alfabetico
+      - ./init:/docker-entrypoint-initdb.d
       - skymanager_data:/var/lib/mysql
 
 volumes:
