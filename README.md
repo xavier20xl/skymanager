@@ -141,7 +141,8 @@ skymanager-api/
 │   │   └── mock/
 │   └── index.js
 ├── db-Sky/             # Base de datos MySQL (Docker)
-│   ├── init/init.sql
+│   ├── init/
+│   │   └── 01-init.sql         # Estructura, semillas y permisos
 │   ├── docker-compose.yml
 │   └── README.md
 ├── .gitignore
