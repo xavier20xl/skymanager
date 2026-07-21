@@ -1,12 +1,10 @@
 import express from 'express'
-import dotenv from 'dotenv'
+import dotenv from 'dotenv/config'
 import flightsRouter from './src/routes/flights.routes.js'
 import airlinesRouter from './src/routes/airlines.routes.js'
 import airportsRouter from './src/routes/airports.routes.js'
 import passengersRouter from './src/routes/passengers.routes.js'
 import bookingsRouter from './src/routes/bookings.routes.js'
-
-dotenv.config()
 
 const app = express()
 
