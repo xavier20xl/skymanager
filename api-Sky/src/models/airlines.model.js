@@ -12,7 +12,8 @@ export default class AirlineModel {
                 BIN_TO_UUID(id) AS id,
                 name,
                 iata_code,
-                country
+                country,
+                logo_url
             FROM airlines`)
 
             return rows
@@ -31,7 +32,8 @@ export default class AirlineModel {
                 BIN_TO_UUID(id) AS id,
                 name,
                 iata_code,
-                country
+                country,
+                logo_url
             FROM airlines WHERE id = UUID_TO_BIN(:id)`, { id })
 
             return rows[0] || null
@@ -47,9 +49,9 @@ export default class AirlineModel {
         try {
 
             await conn.execute(
-                `INSERT INTO airlines (id, name, iata_code, country)
-                VALUES (UUID_TO_BIN(?), ?, ?, ?)`,
-                [airline.id, airline.name, airline.iata_code, airline.country]
+                `INSERT INTO airlines (id, name, iata_code, country, logo_url)
+                VALUES (UUID_TO_BIN(?), ?, ?, ?, ?)`,
+                [airline.id, airline.name, airline.iata_code, airline.country, airline.logo_url || null]
             )
 
             return await AirlineModel.getById(airline.id)

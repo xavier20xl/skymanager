@@ -53,7 +53,8 @@ Content-Type: application/json
 {
   "name": "Copa Airlines",
   "iata_code": "CM",
-  "country": "Panama"
+  "country": "Panama",
+  "logo_url": "https://upload.wikimedia.org/wikipedia/commons/c/c2/Copa_Airlines_logo.svg"
 }
 
 ### Actualizar aerolínea

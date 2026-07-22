@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `airlines` (
     `name` VARCHAR(100) NOT NULL,
     `iata_code` VARCHAR(3) NOT NULL,
     `country` VARCHAR(50) NOT NULL,
+    `logo_url` VARCHAR(255),
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -119,10 +120,10 @@ SET @booking1_id = UUID_TO_BIN('7e4da702-5389-4812-ba27-ca7de40d4006');
 SET @booking2_id = UUID_TO_BIN('abbe24fd-8e0e-45df-89bc-da46191879ee');
 
 -- Insertar Aerolíneas
-INSERT INTO `airlines` (`id`, `name`, `iata_code`, `country`) VALUES 
-(@airline1_id, 'Aeromexico', 'AM', 'Mexico'),
-(@airline2_id, 'Copa Airlines', 'CM', 'Panama'),
-(@airline3_id, 'American Airlines', 'AA', 'United States');
+INSERT INTO `airlines` (`id`, `name`, `iata_code`, `country`, `logo_url`) VALUES 
+(@airline1_id, 'Aeromexico', 'AM', 'Mexico', 'https://upload.wikimedia.org/wikipedia/it/b/bc/AeroM%C3%A9xico_Logo.svg'),
+(@airline2_id, 'Copa Airlines', 'CM', 'Panama', 'https://static.cdnlogo.com/logos/c/28/copa-airlines.svg'),
+(@airline3_id, 'American Airlines', 'AA', 'United States', 'https://upload.wikimedia.org/wikipedia/commons/1/1a/American_Airlines_American_Eagle_Logo.svg');
 
 -- Insertar Aeropuertos
 INSERT INTO `airports` (`id`, `iata_code`, `name`, `city`, `country`) VALUES 
