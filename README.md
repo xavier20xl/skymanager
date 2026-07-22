@@ -10,7 +10,7 @@ Carlos Xavier López Mendoza — 20182030892
 
 - VS Code
 - Git
-- Node.js (v18+)
+- Node.js (v24+)
 - Docker Desktop
 
 ## Para clonar el repositorio
@@ -82,7 +82,7 @@ npm run dev
 | PUT | `/flights/:id` | Actualizar un vuelo |
 | DELETE | `/flights/:id` | Eliminar un vuelo |
 
-**Nota:** Flights, Airlines, Airports y Passengers están conectados directamente a la base de datos MySQL. Los cambios se persisten en la BD en lugar de usar datos en memoria (solo Bookings sigue usando datos mock, pendiente de migrar con transacciones).
+**Nota:** Todos los recursos (Flights, Airlines, Airports, Passengers y Bookings) están conectados a MySQL. Las reservas incluyen validaciones de existencia de pasajero/vuelo y disponibilidad de asiento.
 
 ### Airlines
 
@@ -142,7 +142,8 @@ skymanager-api/
 │   └── index.js
 ├── db-Sky/             # Base de datos MySQL (Docker)
 │   ├── init/
-│   │   └── 01-init.sql         # Estructura, semillas y permisos
+│   │   ├── 01-init.sql         # Estructura, semillas y permisos
+│   │   └── 02-alter-tables.sql # Migraciones futuras (vacío por ahora)
 │   ├── docker-compose.yml
 │   └── README.md
 ├── .gitignore
@@ -178,8 +179,8 @@ skymanager-api/
 
 Todos los recursos validan sus datos con **Zod** antes de llegar al modelo:
 
-- Los `id` son generados por el servidor con `randomUUID()` y validados como **UUID v4**.
-- Las llaves foráneas (`airline_id`, `passenger_id`, `flight_id`) deben ser **UUID v4** válidos — un formato incorrecto responde `400 Bad Request` en lugar de generar un error en la base de datos.
+- Los `id` son generados por el servidor con `randomUUID()` y validados como **UUID**.
+- Las llaves foráneas (`airline_id`, `passenger_id`, `flight_id`) deben ser **UUID** válidos — un formato incorrecto responde `400 Bad Request` en lugar de generar un error en la base de datos.
 - Las fechas (`departure_time`, `arrival_time`, `booking_date`) usan formato ISO 8601 (ej: `2026-08-01T10:00:00Z`).
 - Los esquemas son `.strict()`: cualquier campo extra en el body es rechazado.
 

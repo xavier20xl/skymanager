@@ -9,7 +9,7 @@ GET http://localhost:3000/
 GET http://localhost:3000/flights
 
 ### Obtener vuelo por ID
-GET http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+GET http://localhost:3000/flights/00de318f-262b-4958-bd59-50cfc2db432c
 
 ### Crear vuelo
 POST http://localhost:3000/flights
@@ -18,7 +18,7 @@ Content-Type: application/json
 {
   "origin": "MEX",
   "destination": "SAL",
-  "airline_id": "al1",
+  "airline_id": "81eadc87-af17-45fd-9242-69a13120a815",
   "departure_time": "2026-08-01T08:00:00Z",
   "arrival_time": "2026-08-01T09:00:00Z",
   "status": "scheduled",
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ### Actualizar vuelo
-PUT http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+PUT http://localhost:3000/flights/00de318f-262b-4958-bd59-50cfc2db432c
 Content-Type: application/json
 
 {
@@ -36,7 +36,7 @@ Content-Type: application/json
 }
 
 ### Eliminar vuelo
-DELETE http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
+DELETE http://localhost:3000/flights/00de318f-262b-4958-bd59-50cfc2db432c
 
 ### ==================== AIRLINES ====================
 
@@ -44,7 +44,7 @@ DELETE http://localhost:3000/flights/a1b2c3d4-1234-4abc-9def-0123456789ab
 GET http://localhost:3000/airlines
 
 ### Obtener aerolínea por ID
-GET http://localhost:3000/airlines/al1
+GET http://localhost:3000/airlines/81eadc87-af17-45fd-9242-69a13120a815
 
 ### Crear aerolínea
 POST http://localhost:3000/airlines
@@ -57,7 +57,7 @@ Content-Type: application/json
 }
 
 ### Actualizar aerolínea
-PUT http://localhost:3000/airlines/al1
+PUT http://localhost:3000/airlines/81eadc87-af17-45fd-9242-69a13120a815
 Content-Type: application/json
 
 {
@@ -65,7 +65,7 @@ Content-Type: application/json
 }
 
 ### Eliminar aerolínea
-DELETE http://localhost:3000/airlines/al3
+DELETE http://localhost:3000/airlines/b44e1699-499e-44c6-bb44-0b0d79a1058f
 
 ### ==================== AIRPORTS ====================
 
@@ -73,7 +73,7 @@ DELETE http://localhost:3000/airlines/al3
 GET http://localhost:3000/airports
 
 ### Obtener aeropuerto por ID
-GET http://localhost:3000/airports/apt4
+GET http://localhost:3000/airports/fbfe3b69-f2bb-4087-8269-1a8fe83bfc05
 
 ### Crear aeropuerto
 POST http://localhost:3000/airports
@@ -87,7 +87,7 @@ Content-Type: application/json
 }
 
 ### Actualizar aeropuerto
-PUT http://localhost:3000/airports/apt5
+PUT http://localhost:3000/airports/15101a50-3d46-47b1-9458-9e8683cc6d43
 Content-Type: application/json
 
 {
@@ -95,7 +95,7 @@ Content-Type: application/json
 }
 
 ### Eliminar aeropuerto
-DELETE http://localhost:3000/airports/apt5
+DELETE http://localhost:3000/airports/15101a50-3d46-47b1-9458-9e8683cc6d43
 
 ### ==================== PASSENGERS ====================
 
@@ -103,7 +103,7 @@ DELETE http://localhost:3000/airports/apt5
 GET http://localhost:3000/passengers
 
 ### Obtener pasajero por ID
-GET http://localhost:3000/passengers/psg1
+GET http://localhost:3000/passengers/00932999-7993-44d4-a146-92ee994ed5a1
 
 ### Crear pasajero
 POST http://localhost:3000/passengers
@@ -118,7 +118,7 @@ Content-Type: application/json
 }
 
 ### Actualizar pasajero
-PUT http://localhost:3000/passengers/psg2
+PUT http://localhost:3000/passengers/8db424d4-c97c-4ec4-8b27-6eb7a87a2002
 Content-Type: application/json
 
 {
@@ -126,7 +126,7 @@ Content-Type: application/json
 }
 
 ### Eliminar pasajero
-DELETE http://localhost:3000/passengers/psg3
+DELETE http://localhost:3000/passengers/8db424d4-c97c-4ec4-8b27-6eb7a87a2002
 
 ### ==================== BOOKINGS ====================
 
@@ -134,15 +134,15 @@ DELETE http://localhost:3000/passengers/psg3
 GET http://localhost:3000/bookings
 
 ### Obtener reserva por ID
-GET http://localhost:3000/bookings/bk1
+GET http://localhost:3000/bookings/7e4da702-5389-4812-ba27-ca7de40d4006
 
 ### Crear reserva (exitosa)
 POST http://localhost:3000/bookings
 Content-Type: application/json
 
 {
-  "passenger_id": "psg3",
-  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "passenger_id": "8db424d4-c97c-4ec4-8b27-6eb7a87a2002",
+  "flight_id": "00de318f-262b-4958-bd59-50cfc2db432c",
   "seat_number": "14C",
   "booking_date": "2026-07-16T10:00:00Z",
   "status": "confirmed"
@@ -153,8 +153,8 @@ POST http://localhost:3000/bookings
 Content-Type: application/json
 
 {
-  "passenger_id": "INVALID",
-  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "passenger_id": "00000000-0000-0000-0000-000000000000",
+  "flight_id": "00de318f-262b-4958-bd59-50cfc2db432c",
   "seat_number": "15A",
   "booking_date": "2026-07-16T10:00:00Z",
   "status": "confirmed"
@@ -165,15 +165,15 @@ POST http://localhost:3000/bookings
 Content-Type: application/json
 
 {
-  "passenger_id": "psg3",
-  "flight_id": "a1b2c3d4-1234-4abc-9def-0123456789ab",
+  "passenger_id": "8db424d4-c97c-4ec4-8b27-6eb7a87a2002",
+  "flight_id": "00de318f-262b-4958-bd59-50cfc2db432c",
   "seat_number": "12A",
   "booking_date": "2026-07-16T10:00:00Z",
   "status": "confirmed"
 }
 
 ### Actualizar reserva
-PUT http://localhost:3000/bookings/bk1
+PUT http://localhost:3000/bookings/7e4da702-5389-4812-ba27-ca7de40d4006
 Content-Type: application/json
 
 {
@@ -181,4 +181,4 @@ Content-Type: application/json
 }
 
 ### Eliminar reserva
-DELETE http://localhost:3000/bookings/bk2
+DELETE http://localhost:3000/bookings/abbe24fd-8e0e-45df-89bc-da46191879ee

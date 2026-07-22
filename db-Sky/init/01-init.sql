@@ -99,24 +99,24 @@ CREATE TABLE IF NOT EXISTS `user_permission` (
 -- =========================================================================
 
 -- Variables para almacenar los UUIDs temporales y asegurar las relaciones correctas
-SET @airline1_id = UUID_TO_BIN('a1b2c3d4-1234-4abc-9def-0123456789ab');
-SET @airline2_id = UUID_TO_BIN('b2c3d4e5-2345-4bcd-abcd-123456789abc');
-SET @airline3_id = UUID_TO_BIN('c3d4e5f6-3456-4cde-bcde-23456789abcd');
+SET @airline1_id = UUID_TO_BIN('81eadc87-af17-45fd-9242-69a13120a815');
+SET @airline2_id = UUID_TO_BIN('14c69c95-3928-4147-8f6b-a868205aafd7');
+SET @airline3_id = UUID_TO_BIN('b44e1699-499e-44c6-bb44-0b0d79a1058f');
 
-SET @airport_mex = UUID_TO_BIN('d4e5f6a7-4567-4def-bcde-3456789abcde');
-SET @airport_pty = UUID_TO_BIN('e5f6a7b8-5678-4ef0-cdef-4567890abcde');
-SET @airport_sap = UUID_TO_BIN('f6a7b8c9-6789-4f01-def0-5678901abcde');
-SET @airport_rtb = UUID_TO_BIN('a7b8c9d0-7890-4a12-ef01-6789012abcde');
-SET @airport_sal = UUID_TO_BIN('b8c9d0e1-8901-4b23-f012-7890123abcde');
+SET @airport_mex = UUID_TO_BIN('30331a16-2f2b-43e4-bba2-9f1182ee848c');
+SET @airport_pty = UUID_TO_BIN('9328b220-c0ac-415d-a7b5-44b7e7ffe564');
+SET @airport_sap = UUID_TO_BIN('1c7deec9-388e-46d8-936d-885dc26a6667');
+SET @airport_rtb = UUID_TO_BIN('15101a50-3d46-47b1-9458-9e8683cc6d43');
+SET @airport_sal = UUID_TO_BIN('fbfe3b69-f2bb-4087-8269-1a8fe83bfc05');
 
-SET @passenger1_id = UUID_TO_BIN('c9d0e1f2-9012-4c34-0123-8901234abcde');
-SET @passenger2_id = UUID_TO_BIN('d0e1f2a3-0123-4d45-1234-9012345abcde');
+SET @passenger1_id = UUID_TO_BIN('00932999-7993-44d4-a146-92ee994ed5a1');
+SET @passenger2_id = UUID_TO_BIN('8db424d4-c97c-4ec4-8b27-6eb7a87a2002');
 
-SET @flight1_id = UUID_TO_BIN('e1f2a3b4-1234-4e56-2345-0123456abcde');
-SET @flight2_id = UUID_TO_BIN('f2a3b4c5-2345-4f67-3456-123456789abc');
+SET @flight1_id = UUID_TO_BIN('00de318f-262b-4958-bd59-50cfc2db432c');
+SET @flight2_id = UUID_TO_BIN('d5bcb0ad-3197-4649-885f-e9066cbefa21');
 
-SET @booking1_id = UUID_TO_BIN('a1b2c3d4-e5f6-7890-abcd-ef1234567890');
-SET @booking2_id = UUID_TO_BIN('b2c3d4e5-f6a7-8901-bcde-f12345678901');
+SET @booking1_id = UUID_TO_BIN('7e4da702-5389-4812-ba27-ca7de40d4006');
+SET @booking2_id = UUID_TO_BIN('abbe24fd-8e0e-45df-89bc-da46191879ee');
 
 -- Insertar Aerolíneas
 INSERT INTO `airlines` (`id`, `name`, `iata_code`, `country`) VALUES 
@@ -148,14 +148,14 @@ INSERT INTO `bookings` (`id`, `passenger_id`, `flight_id`, `seat_number`, `booki
 (@booking2_id, @passenger2_id, @flight1_id, '12B', '2026-07-15 11:00:00', 'confirmed');
 
 -- Insertar Usuarios
-SET @user1_id = UUID_TO_BIN('c9d0e1f2-9012-4c34-0123-8901234abcdf');
+SET @user1_id = UUID_TO_BIN('bc1ebff1-d078-4d78-8854-120af22ea1be');
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES 
 (@user1_id, 'admin', 'admin@skymanager.com', '$2b$10$EixZaYVK1fsbw1ZfbX3OXePaWxn96p36PQm4sEPhMNPfFhpYN76q');
 
 -- Insertar Permisos
-SET @perm_flight_create = UUID_TO_BIN('d0e1f2a3-0123-4d45-1234-9012345abcdf');
-SET @perm_flight_delete = UUID_TO_BIN('d0e1f2a3-0123-4d45-1234-9012345abce0');
-SET @perm_booking_create = UUID_TO_BIN('d0e1f2a3-0123-4d45-1234-9012345abce1');
+SET @perm_flight_create = UUID_TO_BIN('ff5a5c25-7fc9-48ab-94a3-40d2a6b7eba4');
+SET @perm_flight_delete = UUID_TO_BIN('3a5c9795-1ebd-494a-afb6-285b42eaaa87');
+SET @perm_booking_create = UUID_TO_BIN('26762c6d-e891-4933-91a7-ab7ad8c87fb5');
 INSERT INTO `permissions` (`id`, `name`, `description`) VALUES 
 (@perm_flight_create, 'flight:create', 'Crear vuelos'),
 (@perm_flight_delete, 'flight:delete', 'Eliminar vuelos'),
